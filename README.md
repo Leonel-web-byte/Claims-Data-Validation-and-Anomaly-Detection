@@ -23,7 +23,7 @@ To compute and display the percentage of Claims underpaid and those overpaid, I 
 I also created “Week” and “Flag_high_variance” column. “Week” column allowed me to extract week from DOS for each claim and “Flag_high_variance” allowed me by using the excel function ABS(), to identify which claim has payment under or over the threshold $100.
 
 ## Data validation and SQL
-I used the database PostgreSQL to identify from my table I created base on the dataset, Claims answering KPIs Questions we asked earlier.
+I used the database PostgreSQL to identify from the table I created base on the dataset, Claims answering KPIs Questions we asked earlier.
 
 ## SQL syntax:
 
@@ -49,6 +49,13 @@ I used the database PostgreSQL to identify from my table I created base on the d
 - SELECT "ClaimID","InsuranceType",EXTRACT(week from "DOS") as Weeknum
 - FROM public."CB"
 - ORDER BY Weeknum, "ClaimID", "InsuranceType";
+
+  # Dashboard:
+
+# Project Insight and recommendations
+Grouping claim variance by InsuranceType, we noticed that 34.4% of claims with anomalies came from Medicare insurance, 35.6% from Medicaid insurance and 30% from Private insurance. To solve this issue and make financial analysis accurate, the RCM team should focus firstly their work on claims under Medicare insurance, because we noticed that each claim under the Medicare insurance make us lose -$694.45 compared to claim under the Medicaid insurance, which make us lose -589.92. Then, we should give priority to value (money we lost) rather than volume (e.g. 172 on the Bar chart).
+
+Also, RCM manager should train Claim processors or Billing team and focusing on those whose handled claims on week with spike anomalies. To identify them, we tracked the high values discrepancies by week showing where we had the anomalies spiking and from that RCM manager can identify employer worked that week by using the SQL syntax I gave previously.
 
 
 
