@@ -22,33 +22,33 @@ To compute and display the percentage of Claims underpaid and those overpaid, I 
 
 I also created “Week” and “Flag_high_variance” column. “Week” column allowed me to extract week from DOS for each claim and “Flag_high_variance” allowed me by using the excel function ABS(), to identify which claim has payment under or over the threshold $100.
 
-3	– Data validation and SQL
+## Data validation and SQL
 I used the database PostgreSQL to identify from my table I created base on the dataset, Claims answering KPIs Questions we asked earlier.
 
-# SQL syntax:
+## SQL syntax:
 
 ## /*Total Claims*/
-SELECT COUNT("ClaimID")
-FROM public."CB";
+- SELECT COUNT("ClaimID")
+- FROM public."CB";
 
 ## /*Anomaly Detection*/
-SELECT "ClaimID","PaidAmount","AllowedAmount","PaidAmount" -"AllowedAmount" as Variance, 
-CASE 
-WHEN ("PaidAmount" -"AllowedAmount")>0 THEN 'Overpayment'
-WHEN ("PaidAmount" -"AllowedAmount")<0 THEN 'Underpayment'
-ELSE 'No Issue'
-END as Flagged_Error
-FROM public."CB";
+- SELECT "ClaimID","PaidAmount","AllowedAmount","PaidAmount" -"AllowedAmount" as Variance, 
+- CASE 
+- WHEN ("PaidAmount" -"AllowedAmount")>0 THEN 'Overpayment'
+- WHEN ("PaidAmount" -"AllowedAmount")<0 THEN 'Underpayment'
+- ELSE 'No Issue'
+- END as Flagged_Error
+- FROM public."CB";
 
 ## /*Root Causes A*/ 
-SELECT "ClaimID","InsuranceType",Round(AVG("PaidAmount" -"AllowedAmount"),2) as Root, COUNT("ClaimID")
-FROM public."CB"
-GROUP BY "InsuranceType" ,"ClaimID";
+- SELECT "ClaimID","InsuranceType",Round(AVG("PaidAmount" -"AllowedAmount"),2) as Root, COUNT("ClaimID")
+- FROM public."CB"
+- GROUP BY "InsuranceType" ,"ClaimID";
 
 ## /*Root Causes B*/
-SELECT "ClaimID","InsuranceType",EXTRACT(week from "DOS") as Weeknum
-FROM public."CB"
-ORDER BY Weeknum, "ClaimID", "InsuranceType";
+- SELECT "ClaimID","InsuranceType",EXTRACT(week from "DOS") as Weeknum
+- FROM public."CB"
+- ORDER BY Weeknum, "ClaimID", "InsuranceType";
 
 
 
