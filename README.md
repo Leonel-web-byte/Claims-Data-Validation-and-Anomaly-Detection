@@ -53,7 +53,7 @@ I used the database PostgreSQL to identify from the table I created base on the 
   # Dashboard:
   <img width="549" height="279" alt="Claims_P" src="https://github.com/Leonel-web-byte/Claims-Data-Validation-and-Anomaly-Detection/blob/main/Claims_Validation.png" />
 
-# Project Insight and recommendations
+# Project Insights and recommendations
 Grouping claim variance by InsuranceType, we noticed that 34.4% of claims with anomalies came from Medicare insurance, 35.6% from Medicaid insurance and 30% from Private insurance. To solve this issue and make financial analysis accurate, the RCM team should focus firstly their work on claims under Medicare insurance, because we noticed that each claim under the Medicare insurance make us lose -$694.45 compared to claim under the Medicaid insurance, which make us lose -589.92. Then, we should give priority to value (money we lost) rather than volume (e.g. 172 on the Bar chart).
 
 Also, RCM manager should train Claim processors or Billing team and focusing on those whose handled claims on week with spike anomalies. To identify them, we tracked the high values discrepancies by week showing where we had the anomalies spiking and from that RCM manager can identify employer worked that week by using the SQL syntax I gave previously.
