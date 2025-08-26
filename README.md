@@ -51,6 +51,7 @@ I used the database PostgreSQL to identify from the table I created base on the 
 - ORDER BY Weeknum, "ClaimID", "InsuranceType";
 
   # Dashboard:
+  <img width="549" height="279" alt="Claims_P" src="https://github.com/Leonel-web-byte/Claims-Data-Validation-and-Anomaly-Detection/blob/main/Claims_Validation.png" />
 
 # Project Insight and recommendations
 Grouping claim variance by InsuranceType, we noticed that 34.4% of claims with anomalies came from Medicare insurance, 35.6% from Medicaid insurance and 30% from Private insurance. To solve this issue and make financial analysis accurate, the RCM team should focus firstly their work on claims under Medicare insurance, because we noticed that each claim under the Medicare insurance make us lose -$694.45 compared to claim under the Medicaid insurance, which make us lose -589.92. Then, we should give priority to value (money we lost) rather than volume (e.g. 172 on the Bar chart).
