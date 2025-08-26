@@ -13,7 +13,7 @@
 -	Dropped claims missing patients ID since they cannot be linked.
 -	Imputed 8 missing Billed Amounts with the median $2631.5 to maintain data consistency.”
 -	Dropped Claims missing Status and Insurance type information to preserve integrity. 
--	Cleaned data
+-	Cleaned data: <a href= "https://github.com/Leonel-web-byte/Claims-Data-Validation-and-Anomaly-Detection/blob/main/synthetic_claims_P.xlsx"> View Dataset</a>
 
 In a real-world dataset, it is always beneficial to return to the EHR system to find missing value before taking the decision to impute or drop them.
 
